@@ -9,7 +9,6 @@
 [![Node.js Version](https://img.shields.io/badge/Node.js-v18+-green.svg)](https://nodejs.org)
 [![Express](https://img.shields.io/badge/Express-4.21.2-lightgrey.svg)](https://expressjs.com)
 [![MongoDB](https://img.shields.io/badge/MongoDB-Atlas%20Ready-brightgreen.svg)](https://mongodb.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 [![Deployment](https://img.shields.io/badge/Deploy-Vercel%20%2B%20Render-blueviolet.svg)](https://vercel.com)
 
 ---
