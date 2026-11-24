@@ -1,0 +1,16 @@
+{
+  "name": "bloomai-florist",
+  "version": "1.0.0",
+  "description": "Complete Business AI Website - BloomAI Florist (Premium Soft Luxury UI + Express/MongoDB Backend)",
+  "scripts": {
+    "install:backend": "cd backend && npm install",
+    "install:all": "npm run install:backend",
+    "start": "cd backend && npm start",
+    "server": "cd backend && npm start",
+    "dev": "cd backend && node --watch server.js",
+    "test": "node test-server.js"
+  },
+  "keywords": ["bloomai", "florist", "ai", "luxury", "ecommerce", "mongodb", "express"],
+  "author": "BloomAI Intern",
+  "license": "MIT"
+}

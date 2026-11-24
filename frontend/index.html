@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloomAI Florist • Luxury Floral Artistry & 24/7 AI Concierge</title>
+  <meta name="description" content="BloomAI Florist blends timeless soft luxury floristry with intelligent 24/7 AI botanical recommendations and bespoke delivery.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Ambient Glow Orbs -->
+  <div class="bg-ambient-orb orb-1"></div>
+  <div class="bg-ambient-orb orb-2"></div>
+
+  <!-- Mobile Drawer Backdrop (Directly under body to prevent parent backdrop-filter issues) -->
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+
+  <!-- Mobile Drawer Navigation Sidebar -->
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation Menu">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-title">
+        <svg class="logo-flower-icon" viewBox="0 0 24 24" style="width: 26px; height: 26px;">
+          <path d="M12 2C13.5 4.5 15 7 15 9C17 9 19.5 10.5 19.5 12C19.5 13.5 17 15 15 15C15 17 13.5 19.5 12 19.5C10.5 19.5 9 17 9 15C7 15 4.5 13.5 4.5 12C4.5 10.5 7 9 9 9C9 7 10.5 2 12 2Z" fill="currentColor" opacity="0.85"/>
+          <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+        </svg>
+        BloomAI <span>Florist</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobileDrawerCloseBtn" aria-label="Close navigation">&times;</button>
+    </div>
+
+    <div class="mobile-drawer-body">
+      <nav class="mobile-nav-list" id="mobileNavList">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#ai-demo">AI Demo</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#booking">Book</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+
+      <div class="mobile-nav-cta">
+        <button class="btn-admin" id="openAdminModalBtnMobile" style="width: 100%; justify-content: center; padding: 0.75rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Admin Bookings
+        </button>
+        <a href="#booking" class="btn btn-primary" id="mobileDrawerBookBtn" style="width: 100%; text-align: center; padding: 0.85rem;">Book Consultation</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ========================================================
+       HEADER (Glass Navbar)
+       ======================================================== -->
+  <header class="glass" id="mainHeader">
+    <a href="#home" class="brand-logo" aria-label="BloomAI Florist Home">
+      <svg class="logo-flower-icon" viewBox="0 0 24 24">
+        <path d="M12 2C13.5 4.5 15 7 15 9C17 9 19.5 10.5 19.5 12C19.5 13.5 17 15 15 15C15 17 13.5 19.5 12 19.5C10.5 19.5 9 17 9 15C7 15 4.5 13.5 4.5 12C4.5 10.5 7 9 9 9C9 7 10.5 2 12 2Z" fill="currentColor" opacity="0.85"/>
+        <circle cx="12" cy="12" r="3.2" fill="#FFFFFF"/>
+      </svg>
+      BloomAI <span>Florist</span>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="nav-links desktop-nav" id="desktopNavLinks" aria-label="Desktop Navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#services">Services</a>
+      <a href="#ai-demo">AI Demo</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#booking">Book</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+
+    <!-- Header Actions -->
+    <div class="nav-actions">
+      <button class="btn-admin desktop-only-btn" id="openAdminModalBtn" title="View live database bookings">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        Admin Bookings
+      </button>
+      <a href="#booking" class="btn btn-primary desktop-only-btn" style="padding: 0.6rem 1.4rem; font-size: 0.88rem;">Book Consultation</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       HERO SECTION (Premium Gradient + AI Input)
+       ======================================================== -->
+  <section class="hero premium-gradient" id="home">
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>✦</span> Soft Luxury & 24/7 Intelligent Concierge <span>✦</span>
+      </div>
+      <h1>BloomAI Florist</h1>
+      <p>Premium Experience + AI Assistant.</p>
+
+      <!-- Exact specification from PDF: input id='aiInput' placeholder='Ask AI...' -->
+      <div class="hero-ai-search-box">
+        <span class="ai-icon-pulse">✦</span>
+        <input id="aiInput" type="text" placeholder="Ask AI..." aria-label="Ask BloomAI Florist anything" />
+        <div class="hero-cta-buttons">
+          <button class="btn btn-primary" id="heroAskAiBtn">Ask AI</button>
+          <a href="#booking" class="btn btn-glass" id="heroBookNowBtn">Book Now</a>
+        </div>
+      </div>
+
+      <!-- Quick Prompt Suggestion Chips -->
+      <div class="hero-chips-wrapper">
+        <span class="hero-chip" data-prompt="Recommend an anniversary bouquet with peonies and roses">🌸 Anniversary Peonies</span>
+        <span class="hero-chip" data-prompt="What are ideal soft luxury flowers for an intimate bridal ceremony?">💍 Intimate Wedding</span>
+        <span class="hero-chip" data-prompt="How do I keep cut Ecuadorian garden roses fresh for 10+ days?">🌿 Flower Care Tips</span>
+        <span class="hero-chip" data-prompt="Tell me about your weekly luxury residence subscription">📦 Weekly Subscription</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       SERVICES SECTION (3+ Premium Glass Cards)
+       ======================================================== -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Haute Floristry</span>
+        <h2 class="section-title">Bespoke Floral Collections</h2>
+        <p class="section-desc">Handcrafted with rare botanical varietals, Ecuadorian garden roses, and architectural styling tailored by our master florists and AI designers.</p>
+      </div>
+
+      <div class="services-grid" id="servicesGrid">
+        <!-- Rendered dynamically by JavaScript or populated with default fallback cards -->
+        <div class="glass service-card">
+          <div class="service-img-wrapper">
+            <span class="service-badge">Most Coveted</span>
+            <img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=800&q=80" alt="Bespoke Bridal Design">
+          </div>
+          <div>
+            <div class="service-price-tag">
+              <span class="currency">$</span>
+              <span class="amount">280</span>
+              <span class="period">/ bespoke</span>
+            </div>
+            <h3>Bespoke Bridal & Haute Floral</h3>
+            <div class="service-tagline">Tailored Botanical Artistry</div>
+            <p class="service-desc">Handcrafted couture bridal bouquets, cascading Phalaenopsis orchids, garden roses, and tailored ceremony installations.</p>
+            <ul class="service-features-list">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Master Florist Consultation Included
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Rare Ecuadorian Garden Roses & Peonies
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                French Silk Ribbon & Complimentary Boutonnière
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary select-service-btn" data-service="Bespoke Bridal & Haute Floral">Book This Service</button>
+        </div>
+
+        <div class="glass service-card">
+          <div class="service-img-wrapper">
+            <span class="service-badge">Best Seller</span>
+            <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" alt="Empress Orchid & Peony Arrangement">
+          </div>
+          <div>
+            <div class="service-price-tag">
+              <span class="currency">$</span>
+              <span class="amount">185</span>
+              <span class="period">/ centerpiece</span>
+            </div>
+            <h3>The Empress Orchid & Peony</h3>
+            <div class="service-tagline">Signature Luxury Centerpiece</div>
+            <p class="service-desc">Sculptural Phalaenopsis orchids paired with layered blush peonies in our custom fluted frosted glass vessel.</p>
+            <ul class="service-features-list">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Premium Long-Stem Phalaenopsis Orchids
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Artisanal Fluted Glass Vessel Included
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Guaranteed 10-Day Peak Freshness
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary select-service-btn" data-service="The Empress Orchid & Peony Arrangement">Book This Service</button>
+        </div>
+
+        <div class="glass service-card">
+          <div class="service-img-wrapper">
+            <span class="service-badge">Popular Tier</span>
+            <img src="https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?auto=format&fit=crop&w=800&q=80" alt="Weekly Luxury Residence Subscription">
+          </div>
+          <div>
+            <div class="service-price-tag">
+              <span class="currency">$</span>
+              <span class="amount">95</span>
+              <span class="period">/ week</span>
+            </div>
+            <h3>Weekly Residence Subscription</h3>
+            <div class="service-tagline">Continuous Living Elegance</div>
+            <p class="service-desc">Weekly seasonal rotations curated by our AI botanical stylist to elevate penthouses, luxury villas, and executive suites.</p>
+            <ul class="service-features-list">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Weekly Curated Seasonal Fresh Blooms
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Complimentary Bespoke Vase Swaps
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Pause or Skip Anytime via Concierge
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary select-service-btn" data-service="Weekly Luxury Residence Subscription">Book This Service</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       AI DEMO SECTION (24x7 Floral Stylist & Booking Agent)
+       ======================================================== -->
+  <section class="ai-demo-section" id="ai-demo">
+    <div class="container">
+      <div class="ai-demo-wrapper">
+        <div class="ai-demo-info">
+          <span class="badge-tag">AI Florist Intelligence</span>
+          <h2>24/7 AI Concierge: Answers, Recommends & Books</h2>
+          <p>Experience intelligent floriography. Our botanical AI understands occasions, color theory, flower symbolism, stem longevity, and seamlessly books your consultation in seconds.</p>
+
+          <ul class="ai-feature-checklist">
+            <li>
+              <div class="ai-feature-icon">✦</div>
+              <div>
+                <h4>Smart Floral Recommendations</h4>
+                <p>Tailored arrangements based on occasion, recipient sentiment, and aesthetic preferences.</p>
+              </div>
+            </li>
+            <li>
+              <div class="ai-feature-icon">⏱</div>
+              <div>
+                <h4>24/7 Instant Availability</h4>
+                <p>Never wait for business hours. Get advice and reserve arrangements at any hour of the day.</p>
+              </div>
+            </li>
+            <li>
+              <div class="ai-feature-icon">📅</div>
+              <div>
+                <h4>Automated Booking Coordination</h4>
+                <p>Seamlessly synchronizes with our floral calendar and confirms deliveries automatically.</p>
+              </div>
+            </li>
+          </ul>
+
+          <a href="#booking" class="btn btn-primary">Schedule Custom Consultation</a>
+        </div>
+
+        <!-- Interactive AI Chat Console -->
+        <div class="ai-chat-console">
+          <div class="chat-console-header">
+            <div class="bot-profile">
+              <div class="bot-avatar">🌸</div>
+              <div class="bot-meta">
+                <h4>BloomAI Concierge</h4>
+                <div class="bot-status">Active • Ready to Assist</div>
+              </div>
+            </div>
+            <button class="btn-glass" id="resetChatBtn" style="padding: 0.35rem 0.8rem; font-size: 0.75rem;">Clear Chat</button>
+          </div>
+
+          <div class="chat-console-messages" id="chatMessages">
+            <div class="message-bubble bot">
+              Good day! Welcome to <strong>BloomAI Florist</strong>. I am your 24/7 botanical stylist. Whether you seek guidance for an upcoming anniversary, wedding color schemes, or flower care secrets, ask me anything!
+            </div>
+            <div class="typing-indicator" id="chatTypingIndicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <form class="chat-console-input-area" id="chatConsoleForm">
+            <input type="text" id="chatConsoleInput" placeholder="Ask our AI Florist a question..." autocomplete="off" />
+            <button type="submit" class="btn btn-primary" style="padding: 0.65rem 1.4rem;">Send</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       GALLERY SECTION (Filter + Hover Zoom)
+       ======================================================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Curated Portfolio</span>
+        <h2 class="section-title">The Floral Lookbook</h2>
+        <p class="section-desc">Explore our signature seasonal creations. Hover to inspect craftsmanship and click to view full botanical details.</p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="gallery-filter-bar" id="galleryFilterBar">
+        <button class="filter-btn active" data-filter="all">All Arrangements</button>
+        <button class="filter-btn" data-filter="wedding">Weddings</button>
+        <button class="filter-btn" data-filter="bouquets">Luxury Bouquets</button>
+        <button class="filter-btn" data-filter="events">Installations</button>
+        <button class="filter-btn" data-filter="preserved">Preserved Roses</button>
+      </div>
+
+      <!-- Gallery Grid with Hover Zoom -->
+      <div class="gallery-grid" id="galleryGrid">
+        <div class="gallery-item" data-category="wedding" data-title="Ivory Gardenia & Peony Bridal Ensemble" data-price="$310" data-desc="Heirloom ivory gardenias nestled among soft blush Sarah Bernhardt peonies and Italian ruscus." data-img="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Bridal Ensemble" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category">Weddings</span>
+            <h4 class="gallery-title">Ivory Gardenia Bridal Ensemble</h4>
+            <div class="gallery-price">$310 • Click to Inspect</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="bouquets" data-title="Velvet Dahlia & Burgundy Rose Harmony" data-price="$195" data-desc="Deep moody wine tones featuring café au lait dahlias, dark Ecuadorian roses, and blackberry foliage." data-img="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Velvet Dahlia Bouquet" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category">Luxury Bouquets</span>
+            <h4 class="gallery-title">Velvet Dahlia & Rose Harmony</h4>
+            <div class="gallery-price">$195 • Click to Inspect</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="events" data-title="Grand Gala Arch & Cascading Florals" data-price="Custom" data-desc="Architectural floral arches composed of over 600 fresh blossoms for private estate galas and banquets." data-img="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Grand Gala Arch" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category">Installations</span>
+            <h4 class="gallery-title">Grand Gala Archway</h4>
+            <div class="gallery-price">Commission • Click to Inspect</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="bouquets" data-title="Pastel Ranunculus & Sweet Pea Cloud" data-price="$170" data-desc="Ethereal Japanese sweet peas, butterfly ranunculus, and champagne spray roses." data-img="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1533616688419-b7a585564566?auto=format&fit=crop&w=800&q=80" alt="Pastel Ranunculus Bouquet" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category">Luxury Bouquets</span>
+            <h4 class="gallery-title">Pastel Ranunculus Cloud</h4>
+            <div class="gallery-price">$170 • Click to Inspect</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="preserved" data-title="Imperial Preserved Rose Treasure Box" data-price="$340" data-desc="Real Ecuadorian grand roses preserved to maintain velvety softness and vibrant bloom for 3+ years." data-img="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80" alt="Preserved Rose Box" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category">Preserved Roses</span>
+            <h4 class="gallery-title">Imperial Preserved Rose Box</h4>
+            <div class="gallery-price">$340 • Click to Inspect</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="wedding" data-title="Monochrome Calla Lily Table Runner" data-price="$260" data-desc="Modern minimalist dining installation with cascading white Dutch calla lilies and hand-poured taper candles." data-img="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80">
+          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Calla Lily Table Runner" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-category">Weddings</span>
+            <h4 class="gallery-title">Monochrome Calla Lilies</h4>
+            <div class="gallery-price">$260 • Click to Inspect</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Zoom Modal -->
+  <div class="lightbox-modal" id="galleryLightbox">
+    <div class="lightbox-content glass">
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close Preview">&times;</button>
+      <div class="lightbox-body">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Enlarged floral creation">
+        <div class="lightbox-details">
+          <div>
+            <span class="badge-tag" id="lightboxCategory">Collection</span>
+            <h3 id="lightboxTitle" style="font-size: 1.8rem; margin: 0.8rem 0; color: #FFFFFF;">Arrangement Name</h3>
+            <p id="lightboxDesc" style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.5rem;">Detailed description.</p>
+            <div style="font-family: var(--font-serif); font-size: 1.8rem; color: var(--secondary); font-weight: 700; margin-bottom: 1.5rem;" id="lightboxPrice">$0</div>
+          </div>
+          <button class="btn btn-primary" id="lightboxBookBtn">Order This Arrangement</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       PRICING SECTION (Monthly / Yearly Toggle)
+       ======================================================== -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Curated Subscriptions</span>
+        <h2 class="section-title">Elevate Your Living Spaces</h2>
+        <p class="section-desc">Continuous botanical luxury delivered to your home or office on schedule. Toggle between monthly and yearly memberships.</p>
+      </div>
+
+      <!-- Monthly / Yearly Toggle -->
+      <div class="pricing-toggle-wrapper">
+        <span class="toggle-label active" id="monthlyLabel">Monthly Billing</span>
+        <div class="toggle-switch" id="pricingToggle" role="button" tabindex="0" aria-label="Toggle Monthly and Yearly Pricing">
+          <div class="toggle-slider"></div>
+        </div>
+        <span class="toggle-label" id="yearlyLabel">Annual Membership</span>
+        <span class="save-badge">Save 20% + Complimentary Vase Swaps</span>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="pricing-cards-grid">
+        <!-- Tier 1 -->
+        <div class="glass pricing-card">
+          <div>
+            <h3>The Petite Bloom</h3>
+            <p class="pricing-desc">Ideal for elegant dining tables, bedside suites, or compact home offices.</p>
+            <div class="price-display">
+              <span class="price-curr">$</span>
+              <span class="price-num" data-monthly="75" data-yearly="60">75</span>
+              <span class="price-cycle" id="cycleText1">/ month</span>
+            </div>
+            <ul class="pricing-perks">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Bi-weekly curated seasonal stems
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Signature ceramic vessel on first order
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Standard white-glove courier delivery
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Pause or modify anytime with 24h notice
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-glass select-pricing-btn" data-plan="The Petite Bloom">Subscribe Now</button>
+        </div>
+
+        <!-- Tier 2 (Featured) -->
+        <div class="glass pricing-card featured">
+          <div class="featured-banner">Most Popular Choice</div>
+          <div>
+            <h3>The Grand Luxe</h3>
+            <p class="pricing-desc">Our flagship residential tier: voluminous, statement arrangements with exotic blooms.</p>
+            <div class="price-display">
+              <span class="price-curr">$</span>
+              <span class="price-num" data-monthly="145" data-yearly="116">145</span>
+              <span class="price-cycle" id="cycleText2">/ month</span>
+            </div>
+            <ul class="pricing-perks">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Weekly fresh botanical deliveries
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Rare imported garden roses & peonies
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Rotating artisanal Italian fluted vases
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Priority 24/7 AI & florist concierge desk
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-primary select-pricing-btn" data-plan="The Grand Luxe">Subscribe to Grand Luxe</button>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass pricing-card">
+          <div>
+            <h3>The Imperial Maison</h3>
+            <p class="pricing-desc">For luxury estates, boutique penthouses, galleries, and high-profile corporate salons.</p>
+            <div class="price-display">
+              <span class="price-curr">$</span>
+              <span class="price-num" data-monthly="280" data-yearly="224">280</span>
+              <span class="price-cycle" id="cycleText3">/ month</span>
+            </div>
+            <ul class="pricing-perks">
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Multiple weekly floral rotations & on-site styling
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Bespoke color palette matched to interior décor
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Custom preserved rose installation gift annually
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Dedicated Senior Floral Director support
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-glass select-pricing-btn" data-plan="The Imperial Maison">Subscribe to Imperial</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       BOOKING SECTION (Form -> POST /api/bookings)
+       ======================================================== -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-wrapper">
+        <div class="booking-perks-box">
+          <span class="badge-tag">Seamless Reservations</span>
+          <h2 class="section-title">Schedule Your Private Consultation</h2>
+          <p class="section-desc">Reserve your bespoke bridal bouquet, event styling, or weekly floral installation with guaranteed white-glove handling.</p>
+
+          <div class="booking-perk-item">
+            <span class="perk-number">01</span>
+            <div class="perk-text">
+              <h4>Direct Master Florist Matching</h4>
+              <p>Your preferences are paired with our lead botanical designer and prepared in our temperature-controlled atelier.</p>
+            </div>
+          </div>
+
+          <div class="booking-perk-item">
+            <span class="perk-number">02</span>
+            <div class="perk-text">
+              <h4>Guaranteed 10-Day Peak Freshness</h4>
+              <p>Sourced directly from certified sustainable high-altitude growers in Ecuador and Holland.</p>
+            </div>
+          </div>
+
+          <div class="booking-perk-item">
+            <span class="perk-number">03</span>
+            <div class="perk-text">
+              <h4>White-Glove Temperature Courier</h4>
+              <p>Hand-delivered in our climate-shielded presentation boxes with hydrating botanical mist.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Glass Booking Form -->
+        <div class="glass booking-form-card">
+          <form class="booking-form" id="bookingForm">
+            <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem; color: #FFFFFF;">Reserve an Experience</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">Complete the form below to submit your reservation directly to our floral calendar.</p>
+
+            <div class="booking-feedback" id="bookingFeedback"></div>
+
+            <div class="form-group-row">
+              <div class="form-field">
+                <label for="bookingName">Full Name *</label>
+                <input type="text" id="bookingName" name="name" placeholder="e.g. Eleanor Vance" required />
+              </div>
+              <div class="form-field">
+                <label for="bookingPhone">Phone Number *</label>
+                <input type="tel" id="bookingPhone" name="phone" placeholder="+1 (555) 234-5678" required />
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-field">
+                <label for="bookingService">Select Service *</label>
+                <select id="bookingService" name="service" required>
+                  <option value="" disabled selected>Choose floral service...</option>
+                  <option value="Bespoke Bridal & Haute Floral Design">Bespoke Bridal & Haute Floral ($280)</option>
+                  <option value="The Empress Orchid & Peony Arrangement">The Empress Orchid & Peony ($185)</option>
+                  <option value="Weekly Luxury Residence Subscription">Weekly Residence Subscription ($95/wk)</option>
+                  <option value="Eternal Preserved Velvet Roses">Eternal Preserved Velvet Roses ($340)</option>
+                  <option value="The Petite Bloom Subscription">The Petite Bloom Subscription</option>
+                  <option value="The Grand Luxe Subscription">The Grand Luxe Subscription</option>
+                  <option value="Custom Event Floral Styling">Custom Event Floral Styling</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="bookingDate">Preferred Date *</label>
+                <input type="date" id="bookingDate" name="date" required />
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="bookingEmail">Email Address (Optional)</label>
+              <input type="email" id="bookingEmail" name="email" placeholder="eleanor@luxury.com" />
+            </div>
+
+            <div class="form-field">
+              <label for="bookingNotes">Floral Preferences / Notes</label>
+              <textarea id="bookingNotes" name="notes" rows="3" placeholder="Tell us about the occasion, preferred flower varieties, colors, or delivery instructions..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submitBookingBtn" style="width: 100%; padding: 1rem; font-size: 1rem;">
+              Confirm Luxury Booking
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       REVIEWS & TESTIMONIALS SECTION
+       ======================================================== -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge-tag">Client Acclaim</span>
+        <h2 class="section-title">Endorsements of Elegance</h2>
+        <p class="section-desc">Read how BloomAI Florist crafts unforgettable memories for brides, art galleries, and discerning private residences.</p>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGrid">
+        <div class="glass review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"BloomAI recommended the exact color palette for our gallery opening based on our exhibition theme. The peonies were breathtaking and lasted well beyond expectation!"</p>
+          </div>
+          <div class="review-client">
+            <img class="client-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Camilla Dupont">
+            <div class="client-info">
+              <h4>Camilla Dupont</h4>
+              <p>Private Collector • Manhattan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The weekly floral subscription transformed our estate entrance. The AI remembers seasonal preferences flawlessly, and the courier handles delivery with utmost discretion."</p>
+          </div>
+          <div class="review-client">
+            <img class="client-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Harrison Thorne">
+            <div class="client-info">
+              <h4>Lord Harrison Thorne</h4>
+              <p>Estate Manager • Greenwich</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"From the initial AI chat consultation to the final bridal installation, the craftsmanship and soft luxury aesthetic were simply unmatched. Highly recommended!"</p>
+          </div>
+          <div class="review-client">
+            <img class="client-avatar" src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80" alt="Seraphina Lin">
+            <div class="client-info">
+              <h4>Seraphina Lin</h4>
+              <p>Bridal Stylist • Paris & NYC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FOOTER (Address | Hours | WhatsApp | Instagram)
+       ======================================================== -->
+  <footer class="glass">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="brand-logo" style="font-size: 1.5rem;">
+          BloomAI <span>Florist</span>
+        </a>
+        <p>Combining the romance of rare haute botanicals with next-generation artificial intelligence to deliver peerless floral experiences worldwide.</p>
+        <div class="social-links">
+          <!-- WhatsApp Quick Chat as specified -->
+          <a href="https://wa.me/15552348901?text=Hello%20BloomAI%20Florist,%20I%20would%20like%20to%20inquire%20about%20a%20luxury%20floral%20arrangement" target="_blank" rel="noopener noreferrer" class="social-pill" title="Chat on WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67Z"/>
+            </svg>
+            WhatsApp
+          </a>
+          <!-- Instagram link as specified -->
+          <a href="https://instagram.com/bloomai.florist" target="_blank" rel="noopener noreferrer" class="social-pill" title="Follow on Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Atelier Address</h4>
+        <ul>
+          <li>742 Evergreen Avenue</li>
+          <li>Haute Luxury Design District</li>
+          <li>New York, NY 10021</li>
+          <li>Tel: +1 (555) 234-8901</li>
+          <li>concierge@bloomai-florist.com</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <ul>
+          <li>Mon – Fri: 8:00 AM – 8:00 PM</li>
+          <li>Saturday: 9:00 AM – 7:00 PM</li>
+          <li>Sunday: 10:00 AM – 5:00 PM</li>
+          <li style="color: var(--secondary); font-weight: 600;">✦ AI Concierge: 24/7/365</li>
+          <li>Same-Day Delivery: Order before 2 PM</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Private Newsletter</h4>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.8rem;">Receive invitations to private botanical exhibitions & seasonal previews.</p>
+        <div style="display: flex; gap: 0.4rem;">
+          <input type="email" placeholder="Your email address" style="flex: 1; padding: 0.65rem 1rem; border-radius: 999px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15); color: #fff; font-size: 0.85rem; outline: none;" id="newsletterEmail" />
+          <button class="btn btn-primary" style="padding: 0.65rem 1rem; font-size: 0.82rem;" onclick="alert('Thank you for joining our private botanical circle.')">Join</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 BloomAI Florist. All rights reserved.</p>
+      <p> Built with Node.js, Express & MongoDB</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       ADMIN BOOKINGS MODAL (Shows live GET /api/bookings data)
+       ======================================================== -->
+  <div class="admin-modal" id="adminBookingsModal">
+    <div class="admin-modal-card">
+      <div class="admin-modal-header">
+        <div style="display: flex; align-items: center; gap: 0.8rem;">
+          <h3 style="font-size: 1.4rem; color: #FFFFFF;">Live Bookings Database</h3>
+          <span class="badge-tag" style="margin-bottom: 0;" id="bookingCountBadge">0 Bookings</span>
+        </div>
+        <button class="lightbox-close-btn" style="position: static;" id="closeAdminModalBtn" aria-label="Close Admin View">&times;</button>
+      </div>
+
+      <div class="admin-modal-body">
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.2rem;">
+          Real-time reservations retrieved directly from the backend API (<code>GET /api/bookings</code>).
+        </p>
+
+        <div style="overflow-x: auto;">
+          <table class="bookings-table">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Phone</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody id="bookingsTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
